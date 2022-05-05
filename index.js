@@ -37,8 +37,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
   return;
 });
-app.get("/",function(){
-  return "hello";
+app.get('/', function(req, res) {
+    res.send('Hello Sir')
 })
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);

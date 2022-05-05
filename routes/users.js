@@ -21,11 +21,11 @@ router.put("/:id", async (req, res) => {
       res.status(200).json(updatedUser);
     } catch (err) {
       res.status(500).json(err);
-      // return;
+      return;
     }
   } else {
     res.status(401).json("You can update only your account!");
-    // return;
+    return;
   }
 });
 
@@ -40,9 +40,11 @@ router.delete("/:id", async (req, res) => {
         res.status(200).json("User has been deleted...");
       } catch (err) {
         res.status(500).json(err);
+        return;
       }
     } catch (err) {
       res.status(404).json("User not found!");
+      return;
     }
   } else {
     res.status(401).json("You can delete only your account!");
@@ -57,6 +59,7 @@ router.get("/:id", async (req, res) => {
     res.status(200).json(others);
   } catch (err) {
     res.status(500).json(err);
+    return;
   }
 });
 
